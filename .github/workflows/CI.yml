@@ -28,7 +28,7 @@ jobs:
           sudo apt-get -y install cmake libbluetooth-dev libsdl-dev freeglut3-dev
       - name: Build (shared lib)
         run: | 
-          cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE
+          cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE -DCMAKE_BUILD_TYPE=Release
           cmake --build build-shared
       - name: capture build artifacts
         uses: actions/upload-artifact@v2
@@ -36,36 +36,36 @@ jobs:
           name: Linux Artifacts
           path: build-shared
 
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          brew update
-          brew install cmake freeglut sdl
-      - name: Build (shared lib)
-        run: | 
-          cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE
-          cmake --build build-shared
-      - name: capture build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: MacOS Artifacts
-          path: build-shared
+  # build-macos:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Check out repository code
+  #       uses: actions/checkout@v2
+  #     - name: Install dependencies
+  #       run: |
+  #         brew update
+  #         brew install cmake freeglut sdl
+  #     - name: Build (shared lib)
+  #       run: | 
+  #         cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE
+  #         cmake --build build-shared
+  #     - name: capture build artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: MacOS Artifacts
+  #         path: build-shared
 
-  build-windows-msvc:
-    runs-on: windows-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: Build (shared lib)
-        run: |
-          cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE
-          cmake --build build-shared
-      - name: capture build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Win32 Artifacts
-          path: build-shared
+  # build-windows-msvc:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Check out repository code
+  #       uses: actions/checkout@v2
+  #     - name: Build (shared lib)
+  #       run: |
+  #         cmake -B build-shared -DBUILD_SHARED_LIBS=TRUE
+  #         cmake --build build-shared
+  #     - name: capture build artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Win32 Artifacts
+  #         path: build-shared
