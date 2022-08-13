@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Linux Artifacts
-          path: build-shared/src/Release
+          path: build-shared
 
   build-macos:
     runs-on: macos-latest
@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: MacOS Artifacts
-          path: build-shared/src/Release
+          path: build-shared
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -68,4 +68,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Win32 Artifacts
-          path: build-shared/src/Release
+          path: build-shared
