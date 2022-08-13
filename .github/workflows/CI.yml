@@ -7,7 +7,11 @@ on:
   release:
     types:
       - created
-#github why
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
 jobs:
   build-linux:
     strategy:
@@ -29,8 +33,8 @@ jobs:
       - name: capture build artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Artifacts
-          path: build-shared
+          name: Linux Artifacts
+          path: build-shared/src/Release
 
   build-macos:
     runs-on: macos-latest
@@ -48,8 +52,8 @@ jobs:
       - name: capture build artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Artifacts
-          path: build-shared
+          name: MacOS Artifacts
+          path: build-shared/src/Release
 
   build-windows-msvc:
     runs-on: windows-latest
@@ -63,5 +67,5 @@ jobs:
       - name: capture build artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Artifacts
-          path: build-shared
+          name: Win32 Artifacts
+          path: build-shared/src/Release
