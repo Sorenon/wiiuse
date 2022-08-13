@@ -26,9 +26,11 @@ set(SOURCES
 	os.h
 	util.c
 	wiiuse_internal.h
-	wiiboard.h)
-set(API
+	wiiboard.h
+	wiiusej_WiiUseApi.c
 	wiiuse.h)
+set(API
+	wiiusej_WiiUseApi.h)
 
 if(WIN32)
 	list(APPEND SOURCES os_win.c)

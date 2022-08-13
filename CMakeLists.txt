@@ -36,6 +36,9 @@ if(NOT BUILD_SHARED_LIBS)
 	add_definitions(-DWIIUSE_STATIC)
 endif()
 
+find_package(JNI REQUIRED)
+include_directories(${JNI_INCLUDE_DIRS})
+
 if(NOT WIN32 AND NOT APPLE)
 	set(LINUX YES)
 	find_package(Bluez REQUIRED)
