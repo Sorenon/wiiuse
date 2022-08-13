@@ -7,7 +7,7 @@ on:
   release:
     types:
       - created
-
+#github why
 jobs:
   build-linux:
     strategy:
